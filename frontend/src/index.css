@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-on-surface: #111c2d;
+  --color-surface-container-low: #f0f3ff;
+  --color-surface-container: #e7eeff;
+  --color-secondary-fixed-dim: #b9c8db;
+  --color-surface-variant: #d8e3fb;
+  --color-primary-fixed: #dbe1ff;
+  --color-on-secondary: #ffffff;
+  --color-inverse-on-surface: #ecf1ff;
+  --color-error-container: #ffdad6;
+  --color-error: #ba1a1a;
+  --color-on-primary-fixed: #00174b;
+  --color-inverse-surface: #263143;
+  --color-tertiary-fixed-dim: #a4c9ff;
+  --color-on-primary-container: #b8c8ff;
+  --color-surface-container-high: #dee8ff;
+  --color-on-primary-fixed-variant: #003ea8;
+  --color-surface-container-highest: #d8e3fb;
+  --color-surface-dim: #cfdaf2;
+  --color-outline-variant: #c3c6d6;
+  --color-secondary-container: #d5e4f8;
+  --color-on-tertiary: #ffffff;
+  --color-outline: #737685;
+  --color-on-tertiary-fixed: #001c39;
+  --color-on-surface-variant: #434654;
+  --color-primary-container: #004ac6;
+  --color-background: #f8fafc;
+  --color-on-tertiary-container: #aaccff;
+  --color-inverse-primary: #b4c5ff;
+  --color-primary-fixed-dim: #b4c5ff;
+  --color-primary: #004ac6;
+  --color-surface-bright: #f9f9ff;
+  --color-surface: #f9f9ff;
+  --color-on-background: #111c2d;
+  --color-tertiary: #60a5fa;
+  --color-on-secondary-fixed-variant: #3a4858;
+  --color-on-primary: #ffffff;
+  --color-on-error: #ffffff;
+  --color-secondary: #dbeafe;
+  --color-surface-tint: #1b55d0;
+  --color-on-secondary-container: #576676;
+  --color-on-error-container: #93000a;
+  --color-secondary-fixed: #d5e4f8;
+  --color-on-secondary-fixed: #0e1d2b;
+  --color-surface-container-lowest: #ffffff;
+  --color-tertiary-fixed: #d4e3ff;
+  --color-on-tertiary-fixed-variant: #004883;
+  --color-tertiary-container: #00569b;
+
+  --radius-DEFAULT: 12px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  --spacing-margin-mobile: 16px;
+  --spacing-2xl: 48px;
+  --spacing-margin-desktop: 40px;
+  --spacing-max-width: 1200px;
+  --spacing-lg: 24px;
+  --spacing-gutter: 16px;
+  --spacing-md: 16px;
+  --spacing-xl: 32px;
+  --spacing-xs: 8px;
+  --spacing-base: 4px;
+  --spacing-sm: 12px;
+
+  /* ── Fix Tailwind v4 spacing-scale name conflicts ──────────────────────────
+     When --spacing-{xs,sm,md,lg,xl} are defined in @theme, Tailwind v4 uses
+     them for ALL spacing utilities including max-w-*, w-*, etc., overriding
+     the default size tokens. These explicit overrides restore the defaults.
+  ──────────────────────────────────────────────────────────────────────────── */
+  --width-xs: 20rem;
+  --width-sm: 24rem;
+  --width-md: 28rem;
+  --width-lg: 32rem;
+  --width-xl: 36rem;
+  --width-2xl: 42rem;
+  --width-3xl: 48rem;
+  --width-4xl: 56rem;
+  --width-5xl: 64rem;
+  --width-6xl: 72rem;
+  --width-7xl: 80rem;
+}
+
+/* ============================================
+   GLOBAL BASE STYLES
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Prevent horizontal scroll on mobile */
+  overflow-x: hidden;
+}
+
+:root {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background-color: #F8FAFC;
+  color: #111C2D;
+  overflow-x: hidden;
+  /* Base font size for readability */
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ============================================
+   RESPONSIVE IMAGES
+   ============================================ */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   GLOBAL CONTAINER (mobile-first)
+   ============================================ */
+.container-main {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 768px) {
+  .container-main {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.glass-effect {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.recipe-card-shadow {
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.progress-bar {
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chip-enter {
+  animation: scaleUp 0.2s ease-out forwards;
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* ============================================
+   MOBILE TOUCH TARGETS
+   ============================================ */
+button, a, [role="button"] {
+  min-height: 44px;
+  /* Ensure tappable area on mobile */
+}
+
+/* Allow small inline elements to keep natural height */
+button.inline-btn-sm {
+  min-height: unset;
+}

@@ -1,0 +1,12 @@
+.git
+.github
+node_modules
+frontend/node_modules
+frontend/dist
+backend/__pycache__
+backend/storage/*.parquet
+backend/storage/*.pkl
+.env
+.env.example
+*.md
+*.log
